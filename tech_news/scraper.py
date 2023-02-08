@@ -1,6 +1,6 @@
 import requests
+from parsel import Selector
 from time import sleep
-# from bs4 import BeautifulSoup
 
 HEADERS = {"user-agent": "Fake user-agent"}
 
@@ -22,7 +22,11 @@ def fetch(url):
 
 # Requisito 2
 def scrape_updates(html_content):
-    """Seu código deve vir aqui"""
+    selector = Selector(html_content)
+    news_urls = selector.css(".entry-title a::attr(href)").getall()
+    if len(news_urls) == 0:
+        return []
+    return news_urls
 
 
 # Requisito 3
