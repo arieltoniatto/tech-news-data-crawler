@@ -2,7 +2,7 @@ import requests
 import re
 from parsel import Selector
 from time import sleep
-# from bs4 import BeautifulSoup
+from tech_news.database import create_news
 
 
 HEADERS = {"user-agent": "Fake user-agent"}
@@ -12,10 +12,7 @@ HEADERS = {"user-agent": "Fake user-agent"}
 def fetch(url):
     try:
         sleep(1)
-        response = requests.get(
-            url,
-            headers=HEADERS
-        )
+        response = requests.get(url, headers=HEADERS)
         if response.status_code == 200:
             return response.text
         return None
@@ -67,10 +64,26 @@ def get_reading_time(selector: Selector):
 
 def remove_html_tags_from_str(selector: Selector) -> str:
     text = selector.css(".entry-content p").get()
-    remover = re.compile(r'<.*?>')
-    return remover.sub('', text)
+    remover = re.compile(r"<.*?>")
+    return remover.sub("", text)
 
 
 # Requisito 5
 def get_tech_news(amount):
-    """Seu código deve vir aqui"""
+    url = "https://blog.betrybe.com/"
+    news = []
+    list_news_links = []
+    while len(list_news_links) < amount:
+        html_content = fetch(url)
+        list_news_links.extend(scrape_updates(html_content))
+        url = scrape_next_page_link(html_content)
+        if url is None:
+            break
+
+    for link in list_news_links[:amount]:
+        html_content = fetch(link)
+        news.append(scrape_news(html_content))
+
+    create_news(news)
+
+    return news
