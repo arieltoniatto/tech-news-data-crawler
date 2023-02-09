@@ -14,16 +14,15 @@ def search_by_title(title):
 # Requisito 8
 def search_by_date(date):
     try:
-        iso_date = datetime.strptime(date, "%Y-%m-%d")
-        db_date = datetime.strftime(iso_date, "%d/%m/%Y")
+        formated_date = datetime.fromisoformat(date).strftime("%d/%m/%Y")
 
-        get_news = search_news({"timestamp": db_date})
+        get_news = search_news({"timestamp": formated_date})
         news_list = []
         for news in get_news:
             news_list.append((news["title"], news["url"]))
         return news_list
     except ValueError:
-        raise ValueError('Data inválida')
+        raise ValueError("Data inválida")
 
 
 # Requisito 9
