@@ -1,5 +1,6 @@
 from unittest.mock import patch
 from tech_news.analyzer.reading_plan import ReadingPlanService  # noqa: F401, E261, E501
+from pytest import raises
 
 
 list_mock = [
@@ -55,3 +56,6 @@ def test_reading_plan_group_news():
 
         reading_plan = ReadingPlanService.group_news_for_available_time(8)
         assert reading_plan == reading_plan_mock
+
+    with raises(ValueError):
+        ReadingPlanService.group_news_for_available_time(0)
