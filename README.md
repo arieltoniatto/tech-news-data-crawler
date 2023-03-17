@@ -1,13 +1,71 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Tech News Data Crawler  :space_invader:
+Seja bem vindo ao Tech News Data Crawler. Este projeto foi desenvolvido durante o módulo de ciências da computação da [Trybe](https://www.betrybe.com/).
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## Sobre o projeto :information_source:
+
+  Você fará um projeto que tem como principal objetivo fazer consultas em notícias sobre tecnologia.
+  Foi utilizado como fonte principal para raspagem de dados o [_blog da Trybe_](https://blog.betrybe.com). 
+  As informações obtidas foram extraídas do HTML e armazenadas em um banco de dados NoSQL _MongoDB_.
+
+## Tecnologias
+- Python
+- MongoDB
+- Pymongo
+- Parsel
+- Pytest
+- Requests
+- Re
+- Typing
+- Sys 
+- Docker
+
+## Rodando o projeto
+1. clone o repositório para a sua máquina através do seu terminal utilizando o comando 
+
+`git clone git@github.com:arieltoniatto/tech-news-data-crawler.git`
+
+2. Crie o ambiente virtual para o projeto
+
+* `python3 -m venv .venv && source .venv/bin/activate`
+  
+ 3. Instale as dependências
+
+* `python3 -m pip install -r dev-requirements.txt`
+
+4. Rode o MongoDB via docker
+
+* `docker-compose up -d mongodb`
+
+## Funcionalidades
+
+  Abra um terminal Python importando estas funções através do comando:
+
+  `python3 -i tech_news/scraper.py`
+
+  Agora invoque as funções utilizando diferentes parâmetros.
+  Exemplo:
+
+* Raspar os dados
+  ```python
+  html = fetch(url_da_noticia)
+  scrape_news(html)
+  ```
+ 
+ * Atualizar os dados
+	  ```python
+	  html = fetch(url_da_noticia)
+	  scrape_updates(html)
+	  ```
+
+* Acessar o menu interativo
+
+	`python3 -i tech_news/menu.py`
+
+Chame pela função `analyzer_menu()` e escolha uma das 5 opções.
+
+
+## Contato
+
+Email: ariel.toniatto@gmail.com
+LinkedIn: https://www.linkedin.com/in/ariel-toniatto/
