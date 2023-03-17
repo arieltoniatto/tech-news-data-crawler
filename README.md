@@ -23,7 +23,7 @@ Seja bem vindo ao Tech News Data Crawler. Este projeto foi desenvolvido durante 
 ## Rodando o projeto
 1. clone o repositório para a sua máquina através do seu terminal utilizando o comando 
 
-`git clone git@github.com:arieltoniatto/tech-news-data-crawler.git`
+* `git clone git@github.com:arieltoniatto/tech-news-data-crawler.git`
 
 2. Crie o ambiente virtual para o projeto
 
@@ -67,5 +67,5 @@ Chame pela função `analyzer_menu()` e escolha uma das 5 opções.
 
 ## Contato
 
-Email: ariel.toniatto@gmail.com
-LinkedIn: https://www.linkedin.com/in/ariel-toniatto/
+* Email: ariel.toniatto@gmail.com
+* LinkedIn: https://www.linkedin.com/in/ariel-toniatto/
